@@ -1,0 +1,71 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+    margin-bottom: 5%;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.media {
+margin-top: 15px;
+}
+.list-group{
+   border-width: 1px;
+}
+.list-group-item{
+    margin-left: 20px;
+    border: solid #103572;
+    border-width: 1px;  
+}
+.media-body{
+    margin-left: 2px;
+}
+.jumbotron{
+    background-color: #fcc658
+}
+.odd{
+       background-color:  #d0dee8;
+}
+.mt-0{
+    padding-top: 5px;
+}
+a{
+    color: #1d4182;
+}
+.btn-primary{
+    background-color: #fcc658;
+    border-radius: 5%;
+    color : black;
+}
+.btn-primary:hover{
+    background-color: #c96929;
+    color:white;
+    border: #fcc658 solid;
+}
+.btn-primary:disabled{
+      background-color: #fcc658;
+    border-radius: 5%;
+    color : black;
+}
+
+.btn-secondary{
+    background-color:#c5cedd;
+    border-radius: 5%;
+    color : black;
+}
+.btn-secondary:hover{
+    background-color: #103572;
+    color:white;
+    border: #fcc658 solid;
+}
+.btn-outline-danger{
+    border-radius: 5%;
+    color : black;
+
+}
+.btn-outline-danger:hover{
+    color:white;
+
+}

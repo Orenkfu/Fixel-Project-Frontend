@@ -1,0 +1,38 @@
+<admin-panel *ngIf="isAdmin()" (movieAdded)="movieAdded($event)"></admin-panel>
+<div class="list-group" *ngIf="movieList">
+
+
+
+  <div style="margin-top: 10%" class="col-md-8">
+    <label for="sortSelect" class="text-center">Sort By:</label>
+    <form #f="ngForm" class="input-group" (ngSubmit)="sort(f.value)">
+
+
+      <select ngModel name="value" class="form-control" id="sortSelect">
+        <option selected disabled hidden></option>
+        <option value="title">Title</option>
+        <option value="release_date">Release Date</option>
+        <option value="_id">Store Entry Date</option>
+      </select>
+
+      <button class="btn btn-primary">Search</button>
+
+    </form>
+  </div>
+
+  <div class="media" *ngFor="let movie of movieList; odd as o; trackBy: identify">
+    <img [src]="posterUrl+movie.poster_path" class="mr-3 img-responsive img-thumbnail" [alt]="movie.title">
+    <div class="media-body">
+      <h5 class="mt-0">
+        <a [routerLink]="['/movies', movie.tmdbId]">{{movie.title}}</a>
+      </h5>
+      <p>
+        {{movie.overview | summary: 150}}
+      </p>
+      <div style="margin-top: 10%" class="card-footer">
+        <button (click)=purchaseTicket(movie) class="btn btn-primary">Purchase Ticket</button>
+        <button *ngIf="isAdmin()" (click)=deleteMovie(movie._id) class="btn btn-outline-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

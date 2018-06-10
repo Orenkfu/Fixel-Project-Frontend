@@ -1,0 +1,27 @@
+<div class="panel">
+  <h3>
+    Admin Panel
+  </h3>
+  <form #f="ngForm" (ngSubmit)="findByName(f.value)">
+    <input placeholder="Movie Name" #name="ngModel" ngModel name="name" (keyup)="searchKeyUp()" class="form-control">
+    <button class="btn btn-primary">Search In TMDB</button>
+    <button type="button" class="btn btn-secondary" (click)="clear()">Clear Movies</button>
+    <div class="alert alert-danger" *ngIf="noResults">
+      No movies called {{name.value}} found in TMDB.
+    </div>
+  </form>
+  <div>
+    <div class="card-group" *ngIf="movieResults">
+      <div class="card" style="width: 12rem;" *ngFor="let movie of movieResults">
+        <img class="card-img-top" [src]="displayImage(movie.poster_path)" [alt]="movie.title">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">{{movie.overview | summary}}</p>
+        </div>
+        <div class="card-footer">
+          <button (click)="addToStore(movie)" class="btn btn-primary btn-block">Add To Store</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div *ngIf="movie">
+  <a routerLink="/movies">&#8592;Movie List</a>
+  <div [ngStyle]="
+  {'background-image': backdropPath,
+   'background-repeat': 'no-repeat'}" class="jumbotron img-responsive">
+
+    <h1 class="center">
+      {{movie.title}}
+      <small>({{movie.release_date | date}})</small>
+    </h1>
+    <div class="center">
+      <img [src]="posterUrl+movie.poster_path" class="img-thumbnail img-responsive" [alt]="movie.title">
+    </div>
+  </div>
+  <p>
+    Average Score: {{movie.vote_average}}
+  </p>
+  <p>
+    Voters: {{movie.vote_count}}
+  </p>
+  <movie-cast [id]="id"></movie-cast>
+  <ul class="list-inline">
+    <p>
+      <br>
+      <b>
+        Genres:
+      </b>
+    </p>
+    <li *ngFor="let g of movie.genres; last as l" class="list-inline-item">
+      <div class="label label-warning">
+        {{g.name}}
+        <span *ngIf="!l">,</span>
+      </div>
+    </li>
+  </ul>
+  <b>Synopsis</b>
+  <br> {{movie.overview}}
+
+</div>

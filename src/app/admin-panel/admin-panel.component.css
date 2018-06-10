@@ -1,0 +1,10 @@
+
+.panel{
+    border: #d0dee8 solid;
+    border-width: 1px;
+    border-radius: 5%;
+    padding: 5%;
+}
+h3{
+    padding: 3%
+}

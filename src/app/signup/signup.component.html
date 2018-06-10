@@ -1,0 +1,76 @@
+<a routerLink="/">&#8592;To Login Page</a>
+<form #f="ngForm" (ngSubmit)="signup(f.value)">
+  <div *ngIf="errorDetails" class="alert alert-danger">
+    {{errorDetails}}
+  </div>
+  <div class="container col-md-6 form-group">
+    <div class="row">
+      <div class="col">
+        <label for="username">Username</label>
+        <br>
+        <input placeholder="*Username" id="username" #username="ngModel" ngModel name="username" required maxlength="40" minlength="3"
+          class="form-control">
+        <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+          <div *ngIf="username.errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="username.errors.minlength">
+            Username must be atleast 3 characters.
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Username cannot exceed 40 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="email">Email</label>
+        <br>
+        <input placeholder="*Email" id="email" #email="ngModel" ngModel name="email" required minlength="5" maxlength="35" class="form-control">
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="email.errors.minlength">
+            Email must be atleast 5 characters.
+          </div>
+          <div *ngIf="email.errors.maxlength">
+            Email cannot exceed 35 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="password">Password </label>
+        <br>
+        <input type="password" id="password" placeholder="*Password" ngModel name="password" #password="ngModel" required minlength="5"
+          maxlength="20" class="form-control">
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password must be atleast 5 characters.
+          </div>
+          <div *ngIf="password.errors.maxlength">
+            Password cannot exceed 20 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" ngModel name="isAdmin" #isAdmin="ngModel" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Request Admin Privileges
+        </label>
+      </div>
+    </div>
+
+    <br>
+    <button [disabled]="!f.valid" class="btn btn-primary btn-block">Sign up
+    </button>
+  </div>
+</form>

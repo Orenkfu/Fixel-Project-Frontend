@@ -1,0 +1,14 @@
+<h3>Top Billed Cast:</h3>
+<div class="list-group" *ngIf="cast">
+  <div class="media" *ngFor="let c of cast; odd as o" [class.odd]="o">
+    <a [href]="profileFullSize+c.profile_path">
+      <img [src]="profileUrl+c.profile_path" class="mr-3" [alt]="c.name">
+    </a>
+    <div class="media-body">
+      {{c.name}}
+      <h5 class="mt-0">
+        {{c.character}}
+      </h5>
+    </div>
+  </div>
+</div>
