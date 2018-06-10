@@ -1,10 +1,17 @@
 # FixelFront
 
+In this repo, you can find the pre-transpiled Angular code for the Fixel home project.
+
+For a more indepth readme about the app, view the backend repo.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+For the app to work on Dev server, manually change url links in the service classes to fit your local API's port.
+
 
 ## Code scaffolding
 
